@@ -54,7 +54,7 @@ namespace NetworkApplication
                 }
                 catch (Exception er)
                 {
-                    MessageBox.Show(er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(er.Message, "Error..", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
