@@ -176,12 +176,12 @@
             this.displayFormat.Items.Add("KB");
             this.displayFormat.Items.Add("MB");
             this.displayFormat.Items.Add("GB");
-            this.displayFormat.Location = new System.Drawing.Point(275, 119);
+            this.displayFormat.Location = new System.Drawing.Point(348, 122);
             this.displayFormat.Name = "displayFormat";
+            this.displayFormat.ReadOnly = true;
             this.displayFormat.Size = new System.Drawing.Size(120, 20);
             this.displayFormat.TabIndex = 7;
             this.displayFormat.Text = "domainUpDown1";
-            this.displayFormat.ReadOnly = true;
             // 
             // NetworkApp
             // 
