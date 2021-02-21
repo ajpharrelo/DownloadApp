@@ -24,7 +24,6 @@ namespace NetworkApplication
             Dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\Downloads";
             Dialog.IsFolderPicker = true;
             lblDownloadDir.Text = Dialog.InitialDirectory;
-            displayFormat.Text = displayFormat.Items[0].ToString();
         }
 
         private async void BtnCheck_Click(object sender, EventArgs e)
@@ -108,6 +107,13 @@ namespace NetworkApplication
 
                     }
             }
+
+        private void displayFormat_SelectedItemChanged(object sender, EventArgs e)
+        {
+
+
+
         }
+    }
     }
 

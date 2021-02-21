@@ -42,7 +42,6 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label4 = new System.Windows.Forms.Label();
             this.lblDownloadDir = new System.Windows.Forms.Label();
-            this.displayFormat = new System.Windows.Forms.DomainUpDown();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -171,24 +170,11 @@
             this.lblDownloadDir.Size = new System.Drawing.Size(0, 13);
             this.lblDownloadDir.TabIndex = 6;
             // 
-            // displayFormat
-            // 
-            this.displayFormat.Items.Add("KB");
-            this.displayFormat.Items.Add("MB");
-            this.displayFormat.Items.Add("GB");
-            this.displayFormat.Location = new System.Drawing.Point(348, 122);
-            this.displayFormat.Name = "displayFormat";
-            this.displayFormat.ReadOnly = true;
-            this.displayFormat.Size = new System.Drawing.Size(120, 20);
-            this.displayFormat.TabIndex = 7;
-            this.displayFormat.Text = "domainUpDown1";
-            // 
             // NetworkApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 151);
-            this.Controls.Add(this.displayFormat);
             this.Controls.Add(this.lblDownloadDir);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.BtnChooseDir);
@@ -223,7 +209,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblDownloadDir;
-        private System.Windows.Forms.DomainUpDown displayFormat;
     }
 }
 
