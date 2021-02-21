@@ -76,36 +76,49 @@ namespace NetworkApplication
         private async void BtnDownload_Click(object sender, EventArgs e)
         {
             string input = txtUrl.Text;
-            HttpClient Client = new HttpClient();
-            if (Uri.IsWellFormedUriString(input, UriKind.Absolute))
+
+            if(input == "")
             {
-                Uri download = new Uri(input);
+                MessageBox.Show("You Need to enter a URL", "URL Empty", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                    HttpClient Client = new HttpClient();
+                    if (Uri.IsWellFormedUriString(input, UriKind.Absolute))
+                    {
+                        Uri download = new Uri(input);
 
-                if (File.Exists(DownloadDirectory.AbsolutePath + download.LocalPath))
-                {
-                    DialogResult diag = MessageBox.Show("File: " + download.LocalPath + " Exists.\nAre you sure you want to replace this file?",
-                        "Overwrite Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                        using (Stream stream = File.Open(DownloadDirectory.AbsolutePath + download.LocalPath,FileMode.Create))
+                        if (File.Exists(DownloadDirectory.AbsolutePath + download.LocalPath))
                         {
+                            DialogResult diag = MessageBox.Show("File: " + download.LocalPath + " Exists.\nAre you sure you want to replace this file?",
+                                "Overwrite Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                            if (diag == DialogResult.Yes)
+                            using (Stream stream = File.Open(DownloadDirectory.AbsolutePath + download.LocalPath, FileMode.Create))
                             {
-                                HttpResponseMessage response = await Client.GetAsync(input, HttpCompletionOption.ResponseHeadersRead);
-                                await response.Content.CopyToAsync(stream);
+
+                                if (diag == DialogResult.Yes)
+                                {
+                                    BtnDownload.Enabled = false;
+                                    HttpResponseMessage response = await Client.GetAsync(input, HttpCompletionOption.ResponseHeadersRead);
+                                    await response.Content.CopyToAsync(stream);
+                                    BtnDownload.Enabled = true;
+                                }
                             }
                         }
-                 }
-                else
-                {
-                    using (Stream stream = File.Open(DownloadDirectory.AbsolutePath + download.LocalPath, FileMode.Create))
-                    {
-                            HttpResponseMessage response = await Client.GetAsync(input, HttpCompletionOption.ResponseHeadersRead);
-                            await response.Content.CopyToAsync(stream);
+                        else
+                        {
+                            using (Stream stream = File.Open(DownloadDirectory.AbsolutePath + download.LocalPath, FileMode.Create))
+                            {
+                                BtnDownload.Enabled = false;
+                                HttpResponseMessage response = await Client.GetAsync(input, HttpCompletionOption.ResponseHeadersRead);
+                                await response.Content.CopyToAsync(stream);
+                                BtnDownload.Enabled = true;
+                            }
+                        }
+
                     }
                 }
 
-                    }
             }
 
         private void displayFormat_SelectedItemChanged(object sender, EventArgs e)
