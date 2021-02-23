@@ -42,6 +42,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label4 = new System.Windows.Forms.Label();
             this.lblDownloadDir = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +56,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.lblName);
             this.groupBox1.Controls.Add(this.lblHost);
             this.groupBox1.Controls.Add(this.lblSize);
@@ -63,7 +65,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 26);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(257, 100);
+            this.groupBox1.Size = new System.Drawing.Size(257, 113);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "File Info";
@@ -156,7 +158,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 129);
+            this.label4.Location = new System.Drawing.Point(18, 142);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 13);
             this.label4.TabIndex = 5;
@@ -165,16 +167,24 @@
             // lblDownloadDir
             // 
             this.lblDownloadDir.AutoSize = true;
-            this.lblDownloadDir.Location = new System.Drawing.Point(110, 129);
+            this.lblDownloadDir.Location = new System.Drawing.Point(116, 142);
             this.lblDownloadDir.Name = "lblDownloadDir";
             this.lblDownloadDir.Size = new System.Drawing.Size(0, 13);
             this.lblDownloadDir.TabIndex = 6;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(9, 86);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 6;
             // 
             // NetworkApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 151);
+            this.ClientSize = new System.Drawing.Size(480, 164);
             this.Controls.Add(this.lblDownloadDir);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.BtnChooseDir);
@@ -209,6 +219,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblDownloadDir;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
