@@ -47,7 +47,7 @@ namespace NetworkApplication
                     Download.size = long.Parse(ok);
                     lblHost.Text = DownloadLink.DnsSafeHost;
                     lblName.Text = Download.filename;
-                    lblSize.Text = Network.BytesToFormat(Download.size, Network.ByteMeasurement.MB);
+                    lblSize.Text = Network.BytesToFormat(Download.size, true);
                     input = "";
 
                 }
