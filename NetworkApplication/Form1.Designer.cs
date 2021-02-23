@@ -43,6 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblDownloadDir = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +57,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.lblName);
             this.groupBox1.Controls.Add(this.lblHost);
@@ -175,10 +177,23 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(9, 86);
+            this.comboBox1.Items.AddRange(new object[] {
+            "Auto (Default)",
+            "KB",
+            "MB"});
+            this.comboBox1.Location = new System.Drawing.Point(121, 86);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 89);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(109, 13);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "File Unit Measurment:";
             // 
             // NetworkApp
             // 
@@ -220,6 +235,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblDownloadDir;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label5;
     }
 }
 

@@ -24,6 +24,7 @@ namespace NetworkApplication
             Dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\Downloads";
             Dialog.IsFolderPicker = true;
             lblDownloadDir.Text = Dialog.InitialDirectory;
+            comboBox1.SelectedItem = comboBox1.Items[0];
         }
 
         private async void BtnCheck_Click(object sender, EventArgs e)
@@ -47,13 +48,25 @@ namespace NetworkApplication
                     Download.size = long.Parse(ok);
                     lblHost.Text = DownloadLink.DnsSafeHost;
                     lblName.Text = Download.filename;
-                    lblSize.Text = Network.BytesToFormat(Download.size, true);
+
+                    switch(comboBox1.SelectedIndex)
+                    {
+                        case 0:
+                            lblSize.Text = Network.BytesToFormat(Download.size, true);
+                            break;
+                        case 1:
+                            lblSize.Text = Network.BytesToFormat(Download.size, Network.ByteMeasurement.KiB);
+                            break;
+                        case 2:
+                            lblSize.Text = Network.BytesToFormat(Download.size, Network.ByteMeasurement.MiB);
+                            break;
+                    }
                     input = "";
 
                 }
                 catch (Exception er)
                 {
-                    MessageBox.Show(er.Message, "Error..", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(er.Message, "Bad Request", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
