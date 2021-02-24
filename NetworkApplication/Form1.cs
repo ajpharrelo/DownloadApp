@@ -49,6 +49,7 @@ namespace NetworkApplication
                     lblHost.Text = DownloadLink.DnsSafeHost;
                     lblName.Text = Download.filename;
 
+                    // Display the output of size of the file, which is configured by the combo box.
                     switch(comboBox1.SelectedIndex)
                     {
                         case 0:
@@ -104,27 +105,32 @@ namespace NetworkApplication
                         if (File.Exists(DownloadDirectory.AbsolutePath + download.LocalPath))
                         {
                             DialogResult diag = MessageBox.Show("File: " + download.LocalPath + " Exists.\nAre you sure you want to replace this file?",
-                                "Overwrite Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                             "Overwrite Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                            using (Stream stream = File.Open(DownloadDirectory.AbsolutePath + download.LocalPath, FileMode.Create))
+                                Stream stream = File.Open(DownloadDirectory +  @"\" + Path.GetFileName(download.LocalPath), FileMode.Create);
+
+                            if (diag == DialogResult.Yes)
                             {
-
-                                if (diag == DialogResult.Yes)
-                                {
                                     BtnDownload.Enabled = false;
                                     HttpResponseMessage response = await Client.GetAsync(input, HttpCompletionOption.ResponseHeadersRead);
                                     await response.Content.CopyToAsync(stream);
+                                    stream.Close();
                                     BtnDownload.Enabled = true;
-                                }
                             }
                         }
                         else
                         {
-                            using (Stream stream = File.Open(DownloadDirectory.AbsolutePath + download.LocalPath, FileMode.Create))
+                            if (Path.GetFileName(download.LocalPath) == "")
                             {
+                                MessageBox.Show("Requested Filename Cannot be blank", "Request Error");
+                            }
+                            else
+                            {
+                                Stream stream = File.Open(DownloadDirectory.LocalPath + @"\" + Path.GetFileName(download.LocalPath), FileMode.Create);
                                 BtnDownload.Enabled = false;
                                 HttpResponseMessage response = await Client.GetAsync(input, HttpCompletionOption.ResponseHeadersRead);
                                 await response.Content.CopyToAsync(stream);
+                                stream.Close();
                                 BtnDownload.Enabled = true;
                             }
                         }

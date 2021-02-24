@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NetworkApp));
             this.txtUrl = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblName = new System.Windows.Forms.Label();
@@ -91,7 +92,7 @@
             // lblSize
             // 
             this.lblSize.AutoSize = true;
-            this.lblSize.Location = new System.Drawing.Point(85, 43);
+            this.lblSize.Location = new System.Drawing.Point(56, 43);
             this.lblSize.Name = "lblSize";
             this.lblSize.Size = new System.Drawing.Size(0, 13);
             this.lblSize.TabIndex = 3;
@@ -110,9 +111,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 43);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 13);
+            this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "File Size (Bytes):";
+            this.label2.Text = "File Size:";
             // 
             // label1
             // 
@@ -176,12 +177,13 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Auto (Default)",
             "KB",
             "MB"});
-            this.comboBox1.Location = new System.Drawing.Point(121, 86);
+            this.comboBox1.Location = new System.Drawing.Point(102, 86);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 6;
@@ -191,9 +193,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(6, 89);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(109, 13);
+            this.label5.Size = new System.Drawing.Size(90, 13);
             this.label5.TabIndex = 7;
-            this.label5.Text = "File Unit Measurment:";
+            this.label5.Text = "Unit Measurment:";
             // 
             // NetworkApp
             // 
@@ -208,8 +210,9 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtUrl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NetworkApp";
-            this.Text = "Network App";
+            this.Text = "File Downloader";
             this.Load += new System.EventHandler(this.NetworkApp_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
